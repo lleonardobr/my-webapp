@@ -6,10 +6,31 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Orbitron', sans-serif; /* Fonte cyberpunk */
     background-color: #0d0d0d;
     color: #ffffff;
     line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Gradiente animado para o fundo */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #00ffcc, #00ffff, #ff00ff, #00ffcc);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    z-index: -1;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .container {
@@ -21,66 +42,73 @@ body {
 
 /* Header */
 header {
-    background: linear-gradient(135deg, #00ffcc, #00ffff);
-    color: #0d0d0d;
     padding: 60px 0;
     text-align: center;
 }
 
 header h1 {
-    font-size: 3rem;
+    font-size: 4rem;
     font-weight: bold;
     text-transform: uppercase;
+    color: #ffffff; /* Cor sólida para garantir legibilidade */
+    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffff, 0 0 40px #ff00ff; /* Sombra neon */
 }
 
 header p {
     font-size: 1.2rem;
     margin-top: 10px;
+    color: #cccccc;
 }
 
 /* Hero Section */
 .hero {
-    background: url('https://via.placeholder.com/1920x600') no-repeat center center/cover;
     padding: 100px 0;
     text-align: center;
 }
 
 .hero h2 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 20px;
-    color: #00ffcc;
+    color: #ffffff; /* Cor sólida para garantir legibilidade */
+    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffff; /* Sombra neon */
 }
 
 .hero p {
     font-size: 1.2rem;
     margin-bottom: 30px;
+    color: #cccccc;
 }
 
 .hero .btn {
-    background: linear-gradient(135deg, #00ffcc, #00ffff);
+    background: linear-gradient(45deg, #00ffcc, #00ffff);
     color: #0d0d0d;
-    padding: 10px 20px;
+    padding: 15px 30px;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 50px;
     font-weight: bold;
-    transition: transform 0.3s ease;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.5);
 }
 
 .hero .btn:hover {
     transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(0, 255, 204, 0.8);
 }
 
 /* Features Section */
 .features {
     padding: 60px 0;
-    background-color: #1a1a1a;
+    background-color: rgba(13, 13, 13, 0.8);
+    backdrop-filter: blur(10px);
 }
 
 .features h2 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 40px;
-    color: #00ffff;
+    color: #ffffff; /* Cor sólida para garantir legibilidade */
+    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffff; /* Sombra neon */
 }
 
 .feature-grid {
@@ -90,17 +118,23 @@ header p {
 }
 
 .feature {
-    background: #262626;
+    background: rgba(38, 38, 38, 0.8);
     padding: 20px;
     border-radius: 10px;
     text-align: center;
     border: 1px solid #00ffcc;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
 }
 
 .feature h3 {
     font-size: 1.5rem;
     margin-bottom: 10px;
-    color: #00ffcc;
+    color: #00ffcc; /* Cor neon para títulos */
 }
 
 .feature p {
@@ -110,10 +144,11 @@ header p {
 
 /* Footer */
 footer {
-    background: #1a1a1a;
+    background: rgba(26, 26, 26, 0.8);
     padding: 20px 0;
     text-align: center;
     margin-top: 40px;
+    backdrop-filter: blur(10px);
 }
 
 footer p {

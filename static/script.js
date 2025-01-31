@@ -13,13 +13,15 @@ function typeWriter() {
 
 typeWriter();
 
-// Efeito de hover nos botões
-const buttons = document.querySelectorAll('.btn');
-buttons.forEach(button => {
-    button.addEventListener('mouseenter', () => {
-        button.style.transform = 'scale(1.1)';
+// Efeito de hover nos cards de features
+const features = document.querySelectorAll('.feature');
+features.forEach(feature => {
+    feature.addEventListener('mouseenter', () => {
+        feature.style.transform = 'translateY(-10px)';
+        feature.style.boxShadow = '0 0 20px rgba(0, 255, 204, 0.5)';
     });
-    button.addEventListener('mouseleave', () => {
-        button.style.transform = 'scale(1)';
+    feature.addEventListener('mouseleave', () => {
+        feature.style.transform = 'translateY(0)';
+        feature.style.boxShadow = '0 0 10px rgba(0, 255, 204, 0.3)';
     });
 });
