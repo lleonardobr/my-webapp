@@ -1,18 +1,22 @@
 package main
 
 import (
-    "fmt"
-    "net/http"
+	"fmt"
+	"log"
+	"my-webapp/handlers" // Importação corrigida
+	"net/http"
 )
 
-func helloHandler(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, "Hello, World!")
-}
-
 func main() {
-    fs := http.FileServer(http.Dir("static"))
-    http.Handle("/", fs)
-    fmt.Println("Servidor rodando na porta 8080...")
-    http.ListenAndServe(":8080", nil)
-}
+	http.HandleFunc("/", handlers.IndexHandler)
+	http.HandleFunc("/login", handlers.LoginHandler)
+	http.HandleFunc("/register", handlers.RegisterHandler)
+	http.HandleFunc("/reset", handlers.ResetHandler)
+	http.HandleFunc("/auth/google", handlers.GoogleAuthHandler)
 
+	fs := http.FileServer(http.Dir("static"))
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
+
+	fmt.Println("Server started at :8080")
+	log.Fatal(http.ListenAndServe(":8080", nil))
+}
